@@ -81,10 +81,10 @@ namespace TestCam.Controllers
                 db.tbl_Personal.Add(model);
                 db.SaveChanges();
                 TempData["Success"] = "Visitor added Successfully!";
-                return RedirectToAction("VisitorIndex");
+              //  return RedirectToAction("VisitorIndex");
             }
-            //return Json(model);
-            return View(model);
+            return Json(model);
+           // return View(model);
         }
 
         //Visitor's List

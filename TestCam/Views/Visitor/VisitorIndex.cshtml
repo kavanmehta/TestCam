@@ -36,7 +36,7 @@
          });
 }
 
-@using (Html.BeginForm("VisitorIndex", "Visitor", FormMethod.Post, new { @class = "m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed" }))
+@using (Html.BeginForm("VisitorIndex", "Visitor", FormMethod.Post, new { @class = "m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed",  id="visitorForm" }))
 {
 
 
@@ -131,7 +131,7 @@
                 <div class="row">
                     <div class="col-lg-4"></div>
                     <div class="col-lg-8">
-                        <button type="submit" class="btn btn-primary">Submit & Print </button>
+                        <input type="button" class="btn btn-primary" value="Submit & Print" onclick="submitAndPrint();" /> 
                         <button type="reset" class="btn btn-secondary" onclick="Cancel();">
                             Cancel
                         </button>
@@ -145,9 +145,43 @@
 
 }
 
-<div id="printPage" title="Alert" hidden>
-    <h2>
-        Visitor Pass
-    </h2>
-    @Html.DisplayFor(m => m.VisitorPassNumber)
-</div>  
+<div class="row  align-items-center" id="printPage" style="width:50%">
+    <div class=" col">
+    <div class="m-widget14__legend">
+
+        <span class="m-widget14__legend-text" id="printName"></span>
+    </div>
+    <div class="m-widget14__legend">
+        <span class="m-widget14__legend-text" id="printContact"></span>
+    </div>
+    <div>
+        <img style="height: 200px;width:200px" id="printImage" />
+    </div>
+
+
+</div>
+    <div class="col">
+        <div class="m-widget14__legends">
+            <div class="m-widget14__legend">
+                @Html.Label("Gate Number :")
+                <span class="m-widget14__legend-text" id="printGateNumber"></span>
+            </div>
+            <div class="m-widget14__legend">
+                @Html.Label("Purpose :")
+                <span class="m-widget14__legend-text" id="printPurpose"></span>
+            </div>
+            <div class="m-widget14__legend">
+                @Html.Label("To Meet :")
+                <span class="m-widget14__legend-text" id="printToMeet"></span>
+            </div>
+            <div class="m-widget14__legend">
+                @Html.Label("In Time :")
+                <span class="m-widget14__legend-text" id="printDate"></span>
+            </div>
+            <div class="m-widget14__legend">
+                @Html.Label("Valid UpTo :")
+                <span class="m-widget14__legend-text" id="printValidUpTo"></span>
+            </div>
+        </div>
+    </div>
+</div>
