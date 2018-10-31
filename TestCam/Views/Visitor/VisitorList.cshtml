@@ -1,0 +1,58 @@
+﻿@model IEnumerable<TestCam.Models.tbl_Personal>
+
+@{
+    ViewBag.Title = "VisitorList";
+}
+var imagePath = @Model.;
+<div class="m-portlet m-portlet--mobile">
+    <div class="m-portlet__head">
+        <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">
+                    Visitor's List
+                </h3>
+            </div>
+        </div>
+
+    </div>
+    <div class="m-portlet__body">
+        <table class="table table-striped- table-bordered table-hover table-checkable" id="Visitors">
+            <thead>
+                <tr>
+                    <th>@Html.Label("Name")</th>
+                    <th>@Html.Label("Purpose")</th>
+                    <th>@Html.Label("Meet")</th>
+                    <th>@Html.Label("From")</th>
+                    <th>@Html.Label("In Time")</th>
+                    <th>@Html.Label("Gate No")</th>
+                    <th>@Html.Label("Pass No")</th>
+                    <th>@Html.Label("Valid UpTo")</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.VisitorList)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Purpose</td>
+                        <td>@item.ToMeet</td>
+                        <td>@item.FromWhere</td>
+                        <td>@item.Date</td>
+                        <td>@item.GateNumber</td>
+                        <td>@item.VisitorPassNumber</td>
+                        <td>@item.ValidUpTo</td>
+
+                        @*<td>@Html.ActionLink("Details", "VisitorEdit", "Visitor", new { id = item.ID })</td>*@
+                        <td>@Html.ActionLink("Details", "VisitorEdit", new { id = item.ID })</td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
